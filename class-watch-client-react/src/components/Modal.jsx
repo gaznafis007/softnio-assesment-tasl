@@ -1,12 +1,21 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import productOne from '../assets/black-blue-watch.png';
+import productTwo from '../assets/purple-watch.png';
+import productThree from '../assets/cyan-watch.png';
 
-
-const Modal = () => {
+const Modal = ({isOpen, setIsOpen, cart}) => {
+    const close = () =>{
+        setIsOpen(false)
+    }
+    const price = cart?.productCount * cart?.price
+    const total = 99 + price + 79
     return (
         <>
-            <div id="cartModal" className="fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center hidden">
-        <div className="w-2/3 mx-auto my-3 bg-white shadow-md rounded-md p-6 relative">
+            <div id="cartModal" className="fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center">
+        <div className="w-2/3 mx-auto my-12 bg-white shadow-md rounded-md p-6 relative">
             {/* Close Button */}
-            <button id="closeModal" className="absolute top-4 right-4 bg-gray-200 rounded-full px-2 py-1 hover:bg-gray-300">
+            <button onClick={close} className="absolute top-4 right-4 bg-gray-200 rounded-full px-2 py-1 hover:bg-gray-300">
                 ✕
             </button>
             
@@ -25,7 +34,7 @@ const Modal = () => {
                 {/* Row 1 */}
                 <tr className="border-b">
                   <td className="py-4 flex items-center space-x-4">
-                    <img src="assets/black-blue-watch.png" alt="Item 1" className="w-14 h-14 rounded"/>
+                    <img src={productOne} alt="Item 1" className="w-14 h-14 rounded"/>
                     <span>Classy Modern Smart watch</span>
                   </td>
                   <td className="py-4">Black</td>
@@ -36,18 +45,18 @@ const Modal = () => {
                 {/* Row 2 */}
                 <tr className="border-b">
                   <td className="py-4 flex items-center space-x-4">
-                    <img src="assets/purple-watch.png" alt="Item 2" className="w-14 h-14 rounded"/>
-                    <span>Classy Modern Smart watch</span>
+                    <img src={productTwo} alt="Item 2" className="w-14 h-14 rounded"/>
+                    <span>{cart.name ? cart?.name : 'Classy Modern Smart watch'}</span>
                   </td>
                   <td className="py-4">Purple</td>
-                  <td className="py-4 px-1 font-bold">L</td>
-                  <td className="py-4 font-bold">2</td>
-                  <td className="py-4">$178.00</td>
+                  <td className="py-4 px-1 font-bold">{cart?.size ? cart?.size : 'M'}</td>
+                  <td className="py-4 font-bold">{cart?.productCount ? cart?.productCount : 1}</td>
+                  <td className="py-4">{price ? price : 79}</td>
                 </tr>
                 {/* Row 3 */}
                 <tr className="border-b">
                   <td className="py-4 flex items-center space-x-4">
-                    <img src="assets/cyan-watch.png" alt="Item 3" className="w-14 h-14 rounded"/>
+                    <img src={productThree} alt="Item 3" className="w-14 h-14 rounded"/>
                     <span>Classy Modern Smart watch</span>
                   </td>
                   <td className="py-4">Cyan</td>
@@ -64,17 +73,17 @@ const Modal = () => {
                   <td className="py-4"></td>
                   <td className="py-4"></td>
                   <td className="py-4 font-bold">4</td>
-                  <td className="py-4 text-lg font-bold text-blue-600">$356.00</td>
+                  <td className="py-4 text-lg font-bold text-blue-600">${total ? total : 257}</td>
                 </tr>
               </tbody>
             </table>
           
             {/* Buttons */}
             <div className="flex justify-end gap-x-3 items-center mt-6">
-              <button className="px-4 py-2 border border-slate-400 text-gray-600 rounded hover:bg-gray-300">
+              <button onClick={close} className="px-4 py-2 border border-slate-400 text-gray-600 rounded hover:bg-gray-300">
                 Continue Shopping
               </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              <button onClick={close} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                 Checkout
               </button>
             </div>
