@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="./output.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Softnio</title>
+</head>
+<body>
+    <main class="mx-4 md:p-10">
+        <section class="flex flex-col md:flex-row space-x-6 w-full md:w-2/3 mx-auto justify-center items-center">
+            <!-- image section -->
+            <div class="w-full md:w-1/2 rounded-md">
+                <img class="rounded-md w-full" src="assets/purple-watch.png" alt="">
+            </div>
+            <!-- text section -->
+            <div>
+                <h1 class="text-4xl font-semibold text-slate-800 capitalize">classy modern smart watch</h1>
+                <div class="mt-2 flex flex-row items-center">
+                    <div>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <i class="fa-regular fa-star-half-stroke text-yellow-400"></i>
+                    <i class="fa-regular fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-slate-500 ml-2"> (2 reviews)</p>
+                </div>
+                <div class="mt-5">
+                    <h2 class="text-2xl text-blue-500"> <span class="text-xl line-through text-slate-400">$99.00</span> <span class="font-semibold">$79.00</span></h2>
+                </div>
+                <!-- description -->
+                <p class="mt-5 font-thin text-slate-400 text-lg">
+                    I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching
+                </p>
+                <!-- type and model number -->
+                <div class="mt-5 flex flex-row gap-x-12">
+                    <div>
+                        <h3 class="text-slate-400 font-thin">
+                            Type
+                        </h3>
+                        <p class="font-bold text-slate-800">
+                            Watch
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-slate-400 font-thin">
+                            Model Number
+                        </h3>
+                        <p class="font-bold text-slate-800">
+                            Forerunner 290XT
+                        </p>
+                    </div>
+                </div>
+                <!-- band color -->
+                <div class="mt-5">
+                    <h2 class="text-slate-800 font-bold capitalize">band color</h2>
+                    <div class="flex flx-row gap-x-3 items-center">
+                        <div class="w-6 h-6 border-2 border-[#816BFF] rounded-full flex items-center">
+                            <div class="w-4 h-4 m-auto text-center rounded-full  bg-[#816BFF]"></div>
+                        </div>
+                        <div class="w-4 h-4 rounded-full bg-[#1FCEC9]"></div>
+                        <div class="w-4 h-4 rounded-full bg-[#4B97D3]"></div>
+                        <div class="w-4 h-4 rounded-full bg-[#3B4747]"></div>
+                    </div>
+                </div>
+                <!-- wrist size -->
+                <div class="mt-5">
+                    <h2 class="text-slate-800 font-bold capitalize">wrist size</h2>
+                    <div id="sizeCards" class="flex flex-col md:flex-row gap-x-3 mt-2">
+                        <!-- Active size card -->
+                        <div class="size-card rounded-md border border-blue-600 px-4 py-1 cursor-pointer" data-size="S">
+                            <p class="font-thin text-slate-400"><span class="text-blue-600 text-lg mr-2 font-bold">S</span> $69</p>
+                        </div>
+                        <!-- Regular size card -->
+                        <div class="size-card rounded-md border border-slate-400 px-4 py-1 cursor-pointer" data-size="M">
+                            <p class="font-thin text-slate-400"><span class="text-black text-lg mr-2 font-bold">M</span> $79</p>
+                        </div>
+                        <!-- Regular size card -->
+                        <div class="size-card rounded-md border border-slate-400 px-4 py-1 cursor-pointer" data-size="L">
+                            <p class="font-thin text-slate-400"><span class="text-black text-lg mr-2 font-bold">L</span> $89</p>
+                        </div>
+                        <!-- Regular size card -->
+                        <div class="size-card rounded-md border border-slate-400 px-4 py-1 cursor-pointer" data-size="XL">
+                            <p class="font-thin text-slate-400"><span class="text-black text-lg mr-2 font-bold">XL</span> $99</p>
+                        </div>
+                    </div>
+                </div>                
+                 <!-- add to cart section -->
+                  <div class="mt-5 flex flex-col md:flex-row gap-x-3 items-center">
+                    <div class="flex flex-row items-center">
+                        <button id="decrement" class="py-2 px-4 border border-slate-400 rounded-l-md">-</button>
+                        <p id="counter" class="p-2 px-4 border-y border-y-slate-400">
+                            0
+                        </p>
+                        <button id="increment" class="py-2 px-4 border border-slate-400 rounded-r-md">+</button>
+                    </div>
+                    <button class="bg-blue-600 text-white font-bold px-3 py-2 rounded-md">Add to cart</button>
+                    <i class="fa-regular fa-heart text-blue-600"></i>
+                  </div>
+            </div>
+        </section>
+    </main>
+    <!-- Checkout -->
+    <button id="checkoutButton" class="bg-[#FFBB5a] rounded-full font-bold text-slate-600 block mb-6 px-4 py-2 mx-auto text-center shadow-md">
+        Checkout <span class="bg-white ml-1 rounded-md text-sm p-1">2</span>
+    </button>
+    <!-- Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center hidden">
+        <div class="w-2/3 mx-auto my-3 bg-white shadow-md rounded-md p-6 relative">
+            <!-- Close Button -->
+            <button id="closeModal" class="absolute top-4 right-4 bg-gray-200 rounded-full px-2 py-1 hover:bg-gray-300">
+                ✕
+            </button>
+            
+            <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b">
+                  <th class="py-2">Item</th>
+                  <th class="py-2">Color</th>
+                  <th class="py-2">Size</th>
+                  <th class="py-2">Qnt</th>
+                  <th class="py-2">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1 -->
+                <tr class="border-b">
+                  <td class="py-4 flex items-center space-x-4">
+                    <img src="assets/black-blue-watch.png" alt="Item 1" class="w-14 h-14 rounded">
+                    <span>Classy Modern Smart watch</span>
+                  </td>
+                  <td class="py-4">Black</td>
+                  <td class="py-4 px-1 font-bold">XL</td>
+                  <td class="py-4 font-bold">1</td>
+                  <td class="py-4">$99.00</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr class="border-b">
+                  <td class="py-4 flex items-center space-x-4">
+                    <img src="assets/purple-watch.png" alt="Item 2" class="w-14 h-14 rounded">
+                    <span>Classy Modern Smart watch</span>
+                  </td>
+                  <td class="py-4">Purple</td>
+                  <td class="py-4 px-1 font-bold">L</td>
+                  <td class="py-4 font-bold">2</td>
+                  <td class="py-4">$178.00</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr class="border-b">
+                  <td class="py-4 flex items-center space-x-4">
+                    <img src="assets/cyan-watch.png" alt="Item 3" class="w-14 h-14 rounded">
+                    <span>Classy Modern Smart watch</span>
+                  </td>
+                  <td class="py-4">Cyan</td>
+                  <td class="py-4 px-1 font-bold">M</td>
+                  <td class="py-4 font-bold">1</td>
+                  <td class="py-4">$79.00</td>
+                </tr>
+                <tr class="mt-5">
+                  <td class="py-4 flex items-center space-x-4">
+                    <p class="text-lg font-bold">
+                        Total
+                      </p>
+                  </td>
+                  <td class="py-4"></td>
+                  <td class="py-4"></td>
+                  <td class="py-4 font-bold">4</td>
+                  <td class="py-4 text-lg font-bold text-blue-600">$356.00</td>
+                </tr>
+              </tbody>
+            </table>
+          
+            <!-- Buttons -->
+            <div class="flex justify-end gap-x-3 items-center mt-6">
+              <button class="px-4 py-2 border border-slate-400 text-gray-600 rounded hover:bg-gray-300">
+                Continue Shopping
+              </button>
+              <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                Checkout
+              </button>
+            </div>
+        </div>
+    </div>
+      
+    <!-- scripts -->
+     <script src="libs.js"></script>
+</body>
+</html>
